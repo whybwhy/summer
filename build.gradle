@@ -38,6 +38,7 @@ dependencies {
 jar {
     manifest {
         attributes 'Main-Class': 'com.summer.EchoApplication'
+        archiveName 'EchoApplication-1.0-SNAPSHOT.jar'
     }
     from {
         configurations.compile.collect {

@@ -1,5 +1,6 @@
 {
   "host" : "localhost",
   "port" : 5000,
-  "charset" : "UTF-8"
+  "charset" : "UTF-8",
+  "file" : "/RESPONSE_ERROR.json"
 }

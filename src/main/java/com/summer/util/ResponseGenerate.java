@@ -9,6 +9,7 @@ public class ResponseGenerate {
 
     private static final String FORMAT_ERROR = FileLoader.load("/RESPONSE_ERROR.json");
 
+
     public static String fail(HttpStatus httpStatus) {
 
         return FORMAT_ERROR.isEmpty() ?

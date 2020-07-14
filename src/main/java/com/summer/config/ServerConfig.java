@@ -11,5 +11,6 @@ public class ServerConfig {
     private String host;
     private int port;
     private String charset;
+    private String file;
 
 }

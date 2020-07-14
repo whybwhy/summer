@@ -40,7 +40,7 @@ public class CommonServerTest {
         // given
         Arrays.asList("http://localhost:5000/read/date"
                     ,"http://localhost:5000/read/noticelist"
-                    ,"http://localhost:5000/read/notice?id=19485"
+                    ,"http://localhost:5000/read/notice?id=19485?a=1"
                     , "http://localhost:5000/read/echo?id=19485")
                 .stream()
                 .forEach(url -> {
@@ -98,7 +98,7 @@ public class CommonServerTest {
         Arrays.asList("http://localhost:8000/../../../../etc/passwd"
                 ,"http://localhost:5000/test/test.exe"
                 ,"http://localhost:5000/"
-                , "http://localhost:5000"
+                , "http://localhost"
                 , "http://localhost:5000/read/none")
                 .stream()
                 .forEach(url -> {

@@ -19,7 +19,7 @@ public class HttpApplication {
 
 
         Process server = SimpleServer.start();
-        Thread.sleep(2000); // server start 대기 시간 확보
+        Thread.sleep(3000); // server start 대기 시간 확보
         SimpleClient client = SimpleClient.start();
 
         System.out.println(line);
