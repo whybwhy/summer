@@ -14,22 +14,22 @@ public class FileLoaderTest {
     public void single() throws Exception {
 
         // given & when
-        String stream = FileLoader.load("RESPONSE_ERROR.json");
+        String stream = FileLoader.load("/RESPONSE_ERROR.json");
 
         // then
         Assert.assertNotNull(stream);
 
     }
 
-    @JUnitDocument("파일 Read 테스트 - 기대결과 : Exception ")
+    @JUnitDocument("파일 Read 테스트 - 기대결과 : 빈 문자열 ")
     @Test
     public void dual() throws Exception {
 
         // given & when
-        String stream = FileLoader.load("RESPONSE_ERROR");
+        String stream = FileLoader.load("/RESPONSE_ERROR");
 
         // then
-        Assert.assertNotNull(stream);
+        Assert.assertEquals(stream, "");
 
     }
 }

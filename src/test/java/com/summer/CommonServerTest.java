@@ -81,10 +81,7 @@ public class CommonServerTest {
     public void triple() {
 
         // given
-        Arrays.asList("http://localhost:5000/test/"
-                ,"http://localhost:5000/test/test"
-                ,"http://localhost:5000/"
-                , "http://localhost:5000")
+        Arrays.asList("http://localhost:5000/read/bill")
                 .stream()
                 .forEach(url -> {
                     String response = new SimpleClientMapper(client)
@@ -97,7 +94,19 @@ public class CommonServerTest {
     @JUnitDocument("403 Bad Request Test")
     @Test
     public void quad() throws Exception {
-
+        // given
+        Arrays.asList("http://localhost:8000/../../../../etc/passwd"
+                ,"http://localhost:5000/test/test.exe"
+                ,"http://localhost:5000/"
+                , "http://localhost:5000"
+                , "http://localhost:5000/read/none")
+                .stream()
+                .forEach(url -> {
+                    String response = new SimpleClientMapper(client)
+                            .method("GET")
+                            .url(url).send();   // when
+                    log.info("@RESPONSE : {}", response);   // then
+                });
 
     }
 

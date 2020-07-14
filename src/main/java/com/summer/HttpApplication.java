@@ -17,7 +17,7 @@ public class HttpApplication {
 
     public static void main(String[] args) throws Exception {
 
-        Scanner scanner = new Scanner(System.in);
+
         Process server = SimpleServer.start();
         Thread.sleep(2000); // server start 대기 시간 확보
         SimpleClient client = SimpleClient.start();
@@ -38,7 +38,14 @@ public class HttpApplication {
                 .body(body)
                 .url("http://localhost:5050/read/notice").send();
 
-        log.info(responsePost);
+        // 403 BAD REQUEST
+        body.put("KEY", "VALUE");
+        String response403 = new SimpleClientMapper(client)
+                .method("POST")
+                .body(body)
+                .url("http://localhost:5000/test/test.exe").send();
+
+        log.info(response403);
         System.out.println(line);
 
         SimpleClient.stop();

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.summer.CommonServerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-07-14T12:11:53" hostname="whybwhyui-MacBook-Pro.local" time="2.266">
+  <properties/>
+  <testcase name="quad" classname="com.summer.CommonServerTest" time="2.266"/>
+  <system-out><![CDATA[21:11:53,163 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+21:11:53,164 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
+21:11:53,164 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/Users/whybwhy/IdeaProjects/git/summer/build/resources/test/logback.xml]
+21:11:53,165 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs multiple times on the classpath.
+21:11:53,165 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [file:/Users/whybwhy/IdeaProjects/git/summer/build/resources/test/logback.xml]
+21:11:53,165 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [file:/Users/whybwhy/IdeaProjects/git/summer/build/resources/main/logback.xml]
+21:11:53,301 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+21:11:53,319 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - Will scan for changes in [file:/Users/whybwhy/IdeaProjects/git/summer/build/resources/test/logback.xml] 
+21:11:53,319 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - Setting ReconfigureOnChangeTask scanning period to 30 seconds
+21:11:53,323 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+21:11:53,338 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [FILE]
+21:11:53,440 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1132505372 - No compression will be used
+21:11:53,442 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1132505372 - Will use the pattern ../logs/summer/summer.%d{yyyy-MM-dd}.log for the active file
+21:11:53,450 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - The date pattern is 'yyyy-MM-dd' from file name pattern '../logs/summer/summer.%d{yyyy-MM-dd}.log'.
+21:11:53,450 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Roll-over at midnight.
+21:11:53,457 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Setting initial period to Tue Jul 14 21:11:40 KST 2020
+21:11:53,460 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Active log file name: ../logs/summer/summer.log
+21:11:53,460 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - File property is set to [../logs/summer/summer.log]
+21:11:53,461 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+21:11:53,463 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+21:11:53,465 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+21:11:53,465 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+21:11:53,465 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - See also http://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+21:11:53,466 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+21:11:53,466 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [FILE] to Logger[ROOT]
+21:11:53,467 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+21:11:53,467 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+21:11:53,468 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@2861837 - Registering current configuration as safe fallback point
+
+[2020-07-14 21:11:55:2431][Test worker] DEBUG com.summer.nio.SimpleClient::sendProtocolToServer:38 - GET http://localhost:8000/../../../../etc/passwd HTTP/1.1
+Accept: application/json
+User-Agent: local
+
+[2020-07-14 21:11:55:2551][Test worker] INFO  com.summer.CommonServerTest::lambda$quad$3:108 - @RESPONSE : HTTP/1.1 403 Forbidden
+Accept: application/json
+User-Agent: local
+
+{
+  "resultCode" : 403,
+  "resultMessage" : "Forbidden"
+}
+[2020-07-14 21:11:55:2555][Test worker] DEBUG com.summer.nio.SimpleClient::sendProtocolToServer:38 - GET http://localhost:5000/test/test.exe HTTP/1.1
+Accept: application/json
+User-Agent: local
+
+[2020-07-14 21:11:55:2585][Test worker] INFO  com.summer.CommonServerTest::lambda$quad$3:108 - @RESPONSE : HTTP/1.1 403 Forbidden
+Accept: application/json
+User-Agent: local
+
+{
+  "resultCode" : 403,
+  "resultMessage" : "Forbidden"
+}
+[2020-07-14 21:11:55:2586][Test worker] DEBUG com.summer.nio.SimpleClient::sendProtocolToServer:38 - GET http://localhost:5000/ HTTP/1.1
+Accept: application/json
+User-Agent: local
+
+[2020-07-14 21:11:55:2607][Test worker] INFO  com.summer.CommonServerTest::lambda$quad$3:108 - @RESPONSE : HTTP/1.1 403 Forbidden
+Accept: application/json
+User-Agent: local
+
+{
+  "resultCode" : 403,
+  "resultMessage" : "Forbidden"
+}
+[2020-07-14 21:11:55:2608][Test worker] DEBUG com.summer.nio.SimpleClient::sendProtocolToServer:38 - GET http://localhost:5000 HTTP/1.1
+Accept: application/json
+User-Agent: local
+
+[2020-07-14 21:11:55:2614][Test worker] INFO  com.summer.CommonServerTest::lambda$quad$3:108 - @RESPONSE : HTTP/1.1 403 Forbidden
+Accept: application/json
+User-Agent: local
+
+{
+  "resultCode" : 403,
+  "resultMessage" : "Forbidden"
+}
+[2020-07-14 21:11:55:2618][Test worker] DEBUG com.summer.nio.SimpleClient::sendProtocolToServer:38 - GET http://localhost:5000/read/none HTTP/1.1
+Accept: application/json
+User-Agent: local
+
+[2020-07-14 21:11:55:2633][Test worker] INFO  com.summer.CommonServerTest::lambda$quad$3:108 - @RESPONSE : HTTP/1.1 200 OK
+Accept: application/json
+User-Agent: local
+
+null
+]]></system-out>
+  <system-err><![CDATA[SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/Users/whybwhy/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.2.3/7c4f3c474fb2c041d8028740440937705ebb473a/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/whybwhy/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-log4j12/1.7.30/c21f55139d8141d2231214fb1feaf50a1edca95e/slf4j-log4j12-1.7.30.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/whybwhy/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-nop/1.7.30/55d4c73dd343efebd236abfeb367c9ef41d55063/slf4j-nop-1.7.30.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/whybwhy/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-simple/1.7.30/e606eac955f55ecf1d8edcccba04eb8ac98088dd/slf4j-simple-1.7.30.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+]]></system-err>
+</testsuite>

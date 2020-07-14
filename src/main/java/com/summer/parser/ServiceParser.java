@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 public class ServiceParser<T> implements Parsable<Request, T> {
 
     private static Map<String, Class> serviceMap;
-
+    private final int RULE_URL_FORMAT = 5;
     static {
         serviceMap = new HashMap<>();
         serviceMap.put("read", ReadService.class);
@@ -44,14 +44,12 @@ public class ServiceParser<T> implements Parsable<Request, T> {
     public T parse(Request request) throws Exception {
 
         // 요청된 URI로 부터 서비스 검색
-        Class clazz;
-        try {
-            clazz = serviceMap.get(getClazzInfo(request.getUrl()));
-        } catch (Exception e) {
-            throw new HttpException(HttpStatus.HTTP_404, "존재하지 않는 Service 요청");
-        }
+        if (parse(request.getUrl()).size() != RULE_URL_FORMAT)
+            throw new HttpException(HttpStatus.HTTP_403, "허용하지 않은 서비스 접근");
 
-        Optional.ofNullable(clazz).orElseThrow(() -> new HttpException(HttpStatus.HTTP_404, "존재하지 않는 Service 요청"));
+        Class clazz = serviceMap.get(getClazzInfo(request.getUrl()));
+        Optional.ofNullable(clazz).orElseThrow(() -> new HttpException(HttpStatus.HTTP_403, "허용하지 않은 서비스 접근"));
+
         Method method = Stream.of(clazz.getDeclaredMethods())
                 .filter(m -> getMethodInfo(request.getUrl()).equalsIgnoreCase(m.getName()))
                 .findFirst().orElseThrow(() -> new HttpException(HttpStatus.HTTP_404, "존재하지 않는 Service 요청"));
@@ -76,7 +74,7 @@ public class ServiceParser<T> implements Parsable<Request, T> {
         }
 
 
-        throw new HttpException(HttpStatus.HTTP_403, "허용하지 않은 서비스 접근입니다.");
+        throw new HttpException(HttpStatus.HTTP_403, "허용하지 않은 서비스 접근");
 
     }
 }
