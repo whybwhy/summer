@@ -1,10 +1,9 @@
 package com.summer;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.summer.annotation.JUnitDocument;
-import com.summer.nio.ClientMapper;
-import com.summer.nio.EchoClient;
-import com.summer.nio.EchoServer;
+import com.summer.nio.SimpleClientMapper;
+import com.summer.nio.SimpleClient;
+import com.summer.nio.SimpleServer;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
@@ -16,21 +15,21 @@ import java.util.Map;
 
 @Slf4j
 @JUnitDocument("Server Test")
-public class ServerTest {
+public class CommonServerTest {
 
     Process server = null;
-    EchoClient client = null;
+    SimpleClient client = null;
 
     @Before
     public void before() throws Exception {
-        server = EchoServer.start();
+        server = SimpleServer.start();
         Thread.sleep(2000);
-        client = EchoClient.start();
+        client = SimpleClient.start();
     }
 
     @After
     public void after() throws Exception {
-        EchoClient.stop();
+        SimpleClient.stop();
         server.destroy();
     }
 
@@ -45,7 +44,7 @@ public class ServerTest {
                     , "http://localhost:5000/read/echo?id=19485")
                 .stream()
                 .forEach(url -> {
-                    String response = new ClientMapper(client)  // when
+                    String response = new SimpleClientMapper(client)  // when
                             .method("GET")
                             .url(url).send();
                     log.info("@RESPONSE : {}", response);   // then
@@ -68,7 +67,7 @@ public class ServerTest {
                 .stream()
                 .forEach(url -> {
 
-                        String response = new ClientMapper(client)
+                        String response = new SimpleClientMapper(client)
                                 .method("POST")
                                 .body(body)
                                 .url(url).send();   // when
@@ -88,7 +87,7 @@ public class ServerTest {
                 , "http://localhost:5000")
                 .stream()
                 .forEach(url -> {
-                    String response = new ClientMapper(client)
+                    String response = new SimpleClientMapper(client)
                             .method("GET")
                             .url(url).send();   // when
                     log.info("@RESPONSE : {}", response);   // then

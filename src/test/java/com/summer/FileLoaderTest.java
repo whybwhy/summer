@@ -1,16 +1,10 @@
-package com.summer.parser;
+package com.summer;
 
 import com.summer.annotation.JUnitDocument;
 import com.summer.config.FileLoader;
-import com.summer.config.ServerConfigLoader;
-import com.summer.type.HttpStatus;
-import com.summer.util.ResponseGenerate;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.Assert.*;
-
-import java.lang.annotation.Documented;
 
 @Slf4j
 public class FileLoaderTest {

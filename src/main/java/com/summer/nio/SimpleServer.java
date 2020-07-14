@@ -24,7 +24,7 @@ import java.nio.charset.Charset;
 import java.util.Iterator;
 
 @Slf4j
-public class EchoServer {
+public class SimpleServer {
 
     public static void main(String[] args) throws Exception {
 
@@ -108,7 +108,7 @@ public class EchoServer {
         String javaHome = System.getProperty("java.home");
         String javaBin = javaHome + File.separator + "bin" + File.separator + "java";
         String classpath = System.getProperty("java.class.path");
-        String className = EchoServer.class.getCanonicalName();
+        String className = SimpleServer.class.getCanonicalName();
 
         ProcessBuilder builder = new ProcessBuilder(javaBin, "-cp", classpath, className);
 

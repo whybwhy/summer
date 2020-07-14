@@ -1,11 +1,10 @@
-package com.summer.parser;
+package com.summer;
 
 import com.summer.annotation.JUnitDocument;
-
 import com.summer.nio.parameter.Request;
+import com.summer.parser.RequestParser;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import org.junit.Assert.*;
 
 @Slf4j
 public class RequestParserTest {

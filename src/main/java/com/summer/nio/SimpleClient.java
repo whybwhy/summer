@@ -1,18 +1,21 @@
 package com.summer.nio;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 
-public class EchoClient {
+@Slf4j
+public class SimpleClient {
 
     private static SocketChannel client;
     private static ByteBuffer buffer;
     private static ByteBuffer bufferResponse;
-    private static EchoClient instance;
+    private static SimpleClient instance;
 
-    private EchoClient() {
+    private SimpleClient() {
         try {
             client = SocketChannel.open(new InetSocketAddress("localhost", 5000));
         } catch (Exception e) {
@@ -20,8 +23,8 @@ public class EchoClient {
         }
     }
 
-    public static EchoClient start() {
-        return instance == null ? new EchoClient() : instance;
+    public static SimpleClient start() {
+        return instance == null ? new SimpleClient() : instance;
     }
 
     public static void stop() throws Exception {
@@ -31,6 +34,9 @@ public class EchoClient {
     }
 
     public String sendProtocolToServer(String protocol) {
+
+        log.debug(protocol);
+
         buffer = ByteBuffer.wrap(protocol.getBytes());
         bufferResponse = ByteBuffer.allocate(1024 * 1024);
 

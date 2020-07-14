@@ -48,8 +48,8 @@ public class ReadService {
     }
 
     @HttpMethods(accept = {HttpMethods.MethodType.GET, HttpMethods.MethodType.POST})
-    public Map<String, String> echo(Map<String, String> parameter) {
-        return parameter;
+    public String echo(Map<String, String> parameter) {
+        return parameter.values().stream().findFirst().get();
     }
 
     public void noneAnnotation() {

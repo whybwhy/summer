@@ -1,13 +1,15 @@
-package com.summer.nio;
+package com.summer;
 
+import com.summer.nio.SimpleClient;
+import com.summer.nio.SimpleServer;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class EchoTest {
     public static void main(String[] args) throws Exception {
-        Process server = EchoServer.start();
+        Process server = SimpleServer.start();
         Thread.sleep(2000);
-        EchoClient client = EchoClient.start();
+        SimpleClient client = SimpleClient.start();
 
 
         String protocol = "GET http://localhost:5000/read/noticelist2 HTTP/1.1\n" +
@@ -98,7 +100,7 @@ public class EchoTest {
         //System.out.println(response6);
 
 
-        EchoClient.stop();
+        SimpleClient.stop();
         server.destroy();
     }
 }
